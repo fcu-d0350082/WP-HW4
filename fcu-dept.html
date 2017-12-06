@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+	<body>
+		<meta charset = "utf-8">
+		<title>FCU</title>
+		<select id = "college-list" onChange = "List()">
+		</select>
+		
+		<div style = "margin-top:20px"></div>
+		
+		<select id = "list">
+		</select>
+			
+		<script>
+			var colleges = ["商學院" , "工學院" , "資電學院"];
+			var businessList = ["會計系" , "國際經營與貿易學系" , "國際經營與貿易學系國際管理全英語學士班" , "財稅學系" , "合作經濟暨社會事業經營學系" , "統計學系" , "經濟學系" , "企業管理學系" , "行銷學系" , "國際企業管理學士學位學程(英語專班)" , "商學進修學士學位學程"];
+			var engineeringList = ["機械與電腦輔助工程學系" , "纖維與複合材料學系" , "工業工程與系統管理學系" , "化學工程學系" , "航太與系統工程學系" , "精密系統設計學士學位學程"];
+			var InformationList = ["資訊工程學系" , "電機工程學系" , "電子工程學系" , "自動控制工程學系" , "通訊工程學系" , "資電不分系榮譽班"];
+			
+			var a = document.getElementById("college-list");
+			var b = document.getElementById("list");
+			
+			Option(a, colleges);
+			
+			function List() {
+				
+				var selCollege = a.options[a.selectedIndex].value;
+				switch(selCollege){
+					case '0':
+						Option(b, businessList);
+						break;
+					case '1':
+						Option(b, engineeringList);
+						break;
+					case '2':
+						Option(b, InformationList);
+						break;
+				}
+			}
+			
+			function Option(selElm, data){
+				var options = "";
+				
+				for(var i = 0 ; i < data.length ; i++){
+					options = options + '<option value="' + i +'">' + data[i] + '</option>';
+				}
+				selElm.innerHTML = options;
+			}
+			</script>
+		
+	</body>
+</html>
